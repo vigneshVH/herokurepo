@@ -1,8 +1,10 @@
 const express=require('express');
 const hbs=require('hbs');
 const fs=require('fs');
-var app=express();
 
+
+var app=express();
+//const port=process.env.PORT || 3000;
 
 
 
@@ -62,4 +64,4 @@ app.get('/about',(req,res)=>
   });
 });
 app.use(express.static(__dirname +'/HTMLFile'));
-app.listen(3000,()=>{console.log("server working on...")});
+app.listen(3000,()=>{console.log(`server working on 3000`)});
