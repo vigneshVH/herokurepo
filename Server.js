@@ -56,6 +56,20 @@ app.get('/home',(req,res)=>
   });//:new Date().getFullyear()
   });
 
+  app.get('/',(req,res)=>
+{
+  res.render('home.hbs',{
+    pagetittle:'home page',
+    welcome:'welcome to website'
+  });
+});
+
+app.get('/',(req,res)=>{
+  res.send({errormsg:'unable to connect'});
+
+
+});
+
 app.get('/About',(req,res)=>
 {
   res.render('About.hbs',{
@@ -65,8 +79,8 @@ app.get('/About',(req,res)=>
     //:new Date().getFullyear()
   });
 });
-app.get('/',(req,res)=> {
-  res.send("Hello");
-});
+// app.get('/',(req,res)=> {
+//   res.send("Hello");
+// });
 app.use(express.static(__dirname +'/HTMLFile'));
 app.listen(port,()=>{console.log(`server working on ${port}`)});
