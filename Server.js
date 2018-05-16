@@ -46,7 +46,7 @@ hbs.registerHelper('upper',(text)=>
 {
   return text.toUpperCase();
 });
-app.get('/home',(req,res)=>
+app.get('/',(req,res)=>
 {
   res.render('HomePage.hbs',{
     name:"vicky",
