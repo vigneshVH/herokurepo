@@ -46,6 +46,13 @@ hbs.registerHelper('upper',(text)=>
 {
   return text.toUpperCase();
 });
+
+app.get('/projects',(req,res)=>
+{
+  res.render('Projects.hbs');
+});
+
+
 app.get('/',(req,res)=>
 {
   res.render('HomePage.hbs',{
