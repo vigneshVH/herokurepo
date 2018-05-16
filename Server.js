@@ -64,4 +64,4 @@ app.get('/about',(req,res)=>
   });
 });
 app.use(express.static(__dirname +'/HTMLFile'));
-app.listen(3010,()=>{console.log(`server working on 3000`)});
+app.listen(3000,()=>{console.log(`server working on 3000`)});
