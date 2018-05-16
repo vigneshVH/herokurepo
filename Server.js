@@ -65,5 +65,8 @@ app.get('/About',(req,res)=>
     //:new Date().getFullyear()
   });
 });
+app.get('/',(req,res)=> {
+  res.send("Hello");
+});
 app.use(express.static(__dirname +'/HTMLFile'));
-app.listen(port,()=>{console.log(`server working on 4000`)});
+app.listen(port,()=>{console.log(`server working on ${port}`)});
