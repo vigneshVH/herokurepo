@@ -4,7 +4,7 @@ const fs=require('fs');
 
 
 var app=express();
-//const port=process.env.PORT || 3000;
+ const port=process.env.PORT || 3000;
 
 
 
@@ -18,9 +18,11 @@ app.set('view engine','hbs');
 */
 app.use((req,res,next)=>
 {
+  console.log("inside");
   var time = new Date().toString();
   var loginTime=`${time}:${req.method},${req.url}`;
-  fs.appendFile('Server.log',loginTime+'\n',(err)=>
+  console.log(loginTime);
+  fs.appendFile('LoginDetails.log',loginTime+'\n',(err)=>
 {
   if(err)
   {
@@ -30,20 +32,20 @@ app.use((req,res,next)=>
   next();
 });
 
-app.use((req,res,next)=>
-{
-  res.render('HomeDu.hbs');
-  next();
-});
+// app.use((req,res,next)=>
+// {
+//   res.render('HomeDu.hbs');
+//   next();
+// });
 
-hbs.registerHelper('getYear',()=>
-{
-  return 'test'
-});
+// hbs.registerHelper('getYear',()=>
+// {
+//   return 'test'
+// });
 hbs.registerHelper('upper',(text)=>
 {
   return text.toUpperCase();
-})
+});
 app.get('/home',(req,res)=>
 {
   res.render('HomePage.hbs',{
@@ -54,14 +56,14 @@ app.get('/home',(req,res)=>
   });//:new Date().getFullyear()
   });
 
-app.get('/about',(req,res)=>
+app.get('/About',(req,res)=>
 {
   res.render('About.hbs',{
     name:"vicky",
       headline:'This is headline for AboutYou',
-    msg:"Welcome to HomePage hai hai hai"
+    msg:"Welcome to AboutPage hai hai hai"
     //:new Date().getFullyear()
   });
 });
 app.use(express.static(__dirname +'/HTMLFile'));
-app.listen(3000,()=>{console.log(`server working on 3000`)});
+app.listen(port,()=>{console.log(`server working on 4000`)});
